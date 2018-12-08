@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Razredi_valjak_kugla
+namespace Razredi_valjak_kugla 
 {
-    class Valjak
+    class Valjak : IComparable <Valjak>
     {
         private float polumjer_baze;
         private float visina;
@@ -55,25 +55,16 @@ namespace Razredi_valjak_kugla
             return 3.14 * (polumjer_baze * polumjer_baze) * visina;
         }
 
-        public void ispis ()
+        public void Ispis ()
         {
             Console.WriteLine("Polumjer baze valjka: {0}", polumjer_baze);
             Console.WriteLine("Visina valjka: {0}", visina);
             
         }
 
-
-
-
-
-
-
-
-
-
-
-
-        
-
+        public int CompareTo(Valjak other)
+        {
+            return this.UkupnaPovrsina().CompareTo(other.UkupnaPovrsina());
+        }
     }
 }
